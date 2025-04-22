@@ -18,10 +18,7 @@ interface RegisterFormProps {
 }
 
 // TODO: 新規登録フォームコンポーネントを実装する
-const RegisterForm: React.FC<RegisterFormProps> = ({
-  onSuccess,
-  onError,
-}) => {
+const RegisterForm: React.FC<RegisterFormProps> = ({ onSuccess, onError }) => {
   // 必要に応じて利用する
   const {
     register,
@@ -48,28 +45,41 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
         新規登録
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
+        <Box mb={2}>
         <TextField
           label="名前"
           required
+          fullWidth
           {...register("name", { required: "入力が必須の項目です" })}
           error={!!errors.name}
           helperText={errors.name?.message}
         />
+        </Box>
 
+        <Box mb={2}>
         <TextField
           label="メール"
           required
+          fullWidth
           type="email"
           {...register("email", {
             required: "メールは必須です",
           })}
         />
+        </Box>
+
+        <Box mb={2}>
         <TextField
           label="ロール"
           required
+          fullWidth
           {...register("role", { required: "ロールは必須です" })}
         />
-        <Button type="submit">登録</Button>
+        </Box>
+        
+        <Button type="submit" variant="contained" color="primary" fullWidth>
+          登録
+        </Button>
       </form>
 
       {submitError && (
