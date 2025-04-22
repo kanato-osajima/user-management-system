@@ -78,6 +78,7 @@ const EditUserForm: React.FC<EditUserFormProps> = ({
             label="名前"
             required
             fullWidth
+            InputLabelProps={{ shrink: true }}
             {...register("name", { required: "入力が必須の項目です" })}
             error={!!errors.name}
             helperText={errors.name?.message}
@@ -89,6 +90,7 @@ const EditUserForm: React.FC<EditUserFormProps> = ({
             label="メール"
             required
             fullWidth
+            InputLabelProps={{ shrink: true }}
             type="email"
             {...register("email", {
               required: "メールは必須です",
@@ -101,6 +103,7 @@ const EditUserForm: React.FC<EditUserFormProps> = ({
             label="ロール"
             required
             fullWidth
+            InputLabelProps={{ shrink: true }}
             {...register("role", { required: "ロールは必須です" })}
           />
         </Box>

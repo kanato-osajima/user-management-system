@@ -19,8 +19,10 @@ const RegisterPage: React.FC = () => {
   return (
     <Box>
       <Typography variant="h5" gutterBottom>
-      <RegisterForm onSuccess={handleSuccess} />
+        新規ユーザー登録
       </Typography>
+      <RegisterForm onSuccess={handleSuccess} />
+      
     </Box>
   );
 };

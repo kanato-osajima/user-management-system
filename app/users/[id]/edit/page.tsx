@@ -20,8 +20,10 @@ const EditUserPage: React.FC = () => {
   return (
     <Box sx={{ mt: 4 }}>
       <Typography variant="h5" gutterBottom>
-        <EditUserForm onSuccess={handleSuccess} userId={userId} />
+      ユーザー編集
       </Typography>
+        <EditUserForm onSuccess={handleSuccess} userId={userId} />
+      
     </Box>
   );
 };
