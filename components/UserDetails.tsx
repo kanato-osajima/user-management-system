@@ -26,7 +26,7 @@ const UserDetails: React.FC<UserDetailsProps> = ({
 
   return (
     <Box sx={{ maxWidth: 400, margin: "auto", mt: 4 }}>
-    <Typography variant="h4" gutterBottom>
+    <Typography variant="h5" gutterBottom>
       ユーザー詳細
     </Typography>
     {user && 

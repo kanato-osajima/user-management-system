@@ -25,6 +25,7 @@ const UserCard: React.FC<UserCardProps> = ({ user,onDelete }) => {
       </CardContent>
       <CardActions>
         <Button size="small" component={Link} href={`/users/${user.id}/edit`}>編集</Button>
+        <Button size="small" component={Link} href={`/users/${user.id}/details`}>詳細</Button>
         <DeleteUserButton userId={user.id} onDelete={onDelete}/>
       </CardActions>
     </Card>
