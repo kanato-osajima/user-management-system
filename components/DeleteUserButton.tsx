@@ -1,7 +1,7 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import { Box, Button, Alert } from "@mui/material";
-import { fetchUserById, softDeleteUser } from "../utils/api";
+import { softDeleteUser } from "../utils/api";
 
 interface DeleteUserButtonProps {
   userId: number;
