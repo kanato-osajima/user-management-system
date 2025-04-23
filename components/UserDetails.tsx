@@ -29,18 +29,26 @@ const UserDetails: React.FC<UserDetailsProps> = ({
     <Typography variant="h4" gutterBottom>
       ユーザー詳細
     </Typography>
+    {user && 
     <Typography variant="h6" gutterBottom>
       ID: {user.id}
     </Typography>
+    }
+    {user &&
     <Typography variant="h6" gutterBottom>
       名前: {user.name}
     </Typography>
+    }
+    {user && 
     <Typography variant="body1" gutterBottom>
       メールアドレス: {user.email}
     </Typography>
+    }
+    {user && 
     <Typography variant="body1" gutterBottom>
       役割: {user.role}
     </Typography>
+    }
   </Box>
 
 
