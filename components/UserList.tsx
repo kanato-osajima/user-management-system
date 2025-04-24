@@ -1,4 +1,4 @@
-"use client"; // クライアントコンポーネントとしてマーク
+"use client"; 
 
 import { User } from "../types/User";
 import UserCard from "../components/UserCard";

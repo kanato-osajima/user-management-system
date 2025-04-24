@@ -5,7 +5,7 @@ import { Card, CardContent, Typography, CardActions } from "@mui/material";
 
 interface CustomCardProps {
   title: string;
-  description: string;
+  description: string[];
   actions?: React.ReactNode;
 }
 
@@ -17,12 +17,12 @@ const CustomCard: React.FC<CustomCardProps> = ({
   return (
     <Card sx={{ minWidth: 275, mb: 2 }}>
       <CardContent>
-        <Typography variant="h5" component="div">
+        <Typography variant="h5" >
           {title}
-        </Typography>
-        <Typography color="text.secondary" variant="body2">
+          </Typography>
+        <Typography sx={{ whiteSpace: "pre-line" }}>
           {description}
-        </Typography>
+          </Typography>
       </CardContent>
       {actions && <CardActions>{actions}</CardActions>}
     </Card>
