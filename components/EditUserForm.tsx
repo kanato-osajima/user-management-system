@@ -79,7 +79,10 @@ const EditUserForm: React.FC<EditUserFormProps> = ({
             required
             fullWidth
             InputLabelProps={{ shrink: true }}
-            {...register("name", { required: "入力が必須の項目です" })}
+            {...register("name", {
+              required: "入力が必須の項目です",
+              maxLength: { value: 50, message: "50文字以内で入力してください" },
+            })}
             error={!!errors.name}
             helperText={errors.name?.message}
           />
@@ -94,7 +97,17 @@ const EditUserForm: React.FC<EditUserFormProps> = ({
             type="email"
             {...register("email", {
               required: "メールは必須です",
+              pattern: {
+                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                message: "正しいメールアドレスを入力してください",
+              },
+              maxLength: {
+                value: 100,
+                message: "100文字以内で入力してください",
+              },
             })}
+            error={!!errors.email}
+            helperText={errors.email?.message}
           />
         </Box>
 
@@ -105,6 +118,8 @@ const EditUserForm: React.FC<EditUserFormProps> = ({
             fullWidth
             InputLabelProps={{ shrink: true }}
             {...register("role", { required: "ロールは必須です" })}
+            error={!!errors.role}
+            helperText={errors.role?.message}
           />
         </Box>
 

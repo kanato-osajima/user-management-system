@@ -15,13 +15,13 @@ const RegisterPage: React.FC = () => {
     router.push("/users");
   };
 
-  //エラーコンソールを表示
+
   return (
     <Box>
       <Typography variant="h5" gutterBottom>
         新規ユーザー登録
       </Typography>
-      <RegisterForm onSuccess={handleSuccess} />
+      <RegisterForm onSuccess={handleSuccess}/>
       
     </Box>
   );

@@ -46,37 +46,60 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onSuccess, onError }) => {
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Box mb={2}>
-        <TextField
-          label="名前"
-          required
-          fullWidth
-          {...register("name", { required: "入力が必須の項目です" })}
-          error={!!errors.name}
-          helperText={errors.name?.message}
-        />
+          <TextField
+            label="名前"
+            fullWidth
+            {...register("name", {
+              required: "入力が必須の項目です",
+              maxLength: { value: 50, message: "50文字以内で入力してください" },
+              pattern: {
+                value: /^[ぁ-んァ-ン一-龥a-zA-Z\s]+$/,
+                message: "名前に記号は使用できません",
+              },
+            })}
+            error={!!errors.name}
+            helperText={errors.name?.message || ""}
+          />
         </Box>
 
         <Box mb={2}>
-        <TextField
-          label="メール"
-          required
-          fullWidth
-          type="email"
-          {...register("email", {
-            required: "メールは必須です",
-          })}
-        />
+          <TextField
+            label="メール"
+            fullWidth
+            type="email"
+            {...register("email", {
+              required: "メールは必須です",
+              pattern: {
+                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                message: "正しいメールアドレスを入力してください",
+              },
+              maxLength: {
+                value: 100,
+                message: "100文字以内で入力してください",
+              },
+            })}
+            error={!!errors.email}
+            helperText={errors.email?.message}
+          />
         </Box>
 
         <Box mb={2}>
-        <TextField
-          label="ロール"
-          required
-          fullWidth
-          {...register("role", { required: "ロールは必須です" })}
-        />
+          <TextField
+            label="ロール"
+            fullWidth
+            {...register("role", {
+              required: "ロールは必須です",
+              pattern: {
+                value: /^[A-Za-z\s]+$/,
+                message:
+                  "ロールはローマ字のみで入力してください（英字とスペース）",
+              },
+            })}
+            error={!!errors.role}
+            helperText={errors.role?.message}
+          />
         </Box>
-        
+
         <Button type="submit" variant="contained" color="primary" fullWidth>
           登録
         </Button>

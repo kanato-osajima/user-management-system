@@ -30,12 +30,12 @@ const UserDetails: React.FC<UserDetailsProps> = ({
       ユーザー詳細
     </Typography>
     {user && 
-    <Typography variant="h6" gutterBottom>
+    <Typography variant="body1" gutterBottom>
       ID: {user.id}
     </Typography>
     }
     {user &&
-    <Typography variant="h6" gutterBottom>
+    <Typography variant="body1" gutterBottom>
       名前: {user.name}
     </Typography>
     }
