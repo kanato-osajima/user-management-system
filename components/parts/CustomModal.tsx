@@ -1,7 +1,8 @@
 // components/parts/CustomModal.tsx
 
 import React, { useEffect } from "react";
-import { Modal, Box, Typography, Button } from "@mui/material";
+import { Modal, Box, Typography, } from "@mui/material";
+import CustomButton from "./CustomButton";
 
 interface CustomModalProps {
   open: boolean;
@@ -9,7 +10,30 @@ interface CustomModalProps {
   content: string;
   onClose: () => void;
   onConfirm?: () => void;
+  modalVariant?: "default" | "primary" | "secondary" | "danger";
 }
+
+const getModalColorStyles = (variant: CustomModalProps["modalVariant"]) => {
+  if (variant === "primary") {
+    return {
+      backgroundColor: "#efefff",
+    };
+  } else if (variant === "secondary") {
+    return {
+      backgroundColor: "#ffeaf4",
+    };
+  } else if (variant === "danger") {
+    return {
+      backgroundColor: "#ff9393",
+      color: "white",
+    };
+  } else {
+    return {
+      backgroundColor: "white",
+      color: "black",
+    };
+  }
+};
 
 const style = {
   position: "absolute" as const,
@@ -29,15 +53,18 @@ const CustomModal: React.FC<CustomModalProps> = ({
   content,
   onClose,
   onConfirm,
+  modalVariant = "default",
 }) => {
+  const modalStyles = getModalColorStyles(modalVariant);
+
   useEffect(() => {
     if (open) {
-      const audio = new Audio("/sounds/sound.mp3"); // 音声ファイルのパス
+      const audio = new Audio("/sounds/sound.mp3");
       const playAudio = async () => {
         try {
-          await audio.play(); // 非同期で音を再生
+          await audio.play();
         } catch (error) {
-          console.error("音声再生エラー: ", error); // エラーハンドリング
+          console.error("音声再生エラー: ", error);
         }
       };
       playAudio();
@@ -46,19 +73,19 @@ const CustomModal: React.FC<CustomModalProps> = ({
 
   return (
     <Modal open={open} onClose={onClose}>
-      <Box sx={style}>
+      <Box sx={{ ...style, ...modalStyles }}>
         <Typography variant="h6" component="h2" gutterBottom>
           {title}
         </Typography>
         <Typography sx={{ mt: 2 }}>{content}</Typography>
         <Box sx={{ mt: 4, display: "flex", justifyContent: "flex-end" }}>
-          <Button onClick={onClose} sx={{ mr: 2 }}>
+          <CustomButton variantType="cancel" onClick={onClose} sx={{ mr: 2 }}>
             キャンセル
-          </Button>
+          </CustomButton>
           {onConfirm && (
-            <Button variant="contained" color="primary" onClick={onConfirm}>
+            <CustomButton variantType="danger" sx={{ mr: 2 }} onClick={onConfirm}>
               確認
-            </Button>
+            </CustomButton>
           )}
         </Box>
       </Box>

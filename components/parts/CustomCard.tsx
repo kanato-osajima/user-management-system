@@ -42,7 +42,10 @@ const CustomCard: React.FC<CustomCardProps> = ({
   const cardStyles = getCardColorStyles(colorVariant);
 
   return (
-    <Card sx={{ minWidth: 275, mb: 2, ...cardStyles }}>
+    <Card sx={{ minWidth: 275, mb: 2, trantion:"all 0.2s ease-in-out",
+      "&:hover": {
+        transform: "scale(1.04)",
+      }, ...cardStyles }}>
       <CardContent>
         <Typography variant="h5">{title}</Typography>
         <Typography sx={{ whiteSpace: "pre-line" }}>{description}</Typography>

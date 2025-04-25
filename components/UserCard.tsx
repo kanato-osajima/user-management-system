@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Alert } from "@mui/material";
+import { Alert, Box } from "@mui/material";
 import { User } from "../types/User";
 import Link from "next/link";
 import CustomButton from "./parts/CustomButton";
@@ -34,7 +34,7 @@ const UserCard: React.FC<UserCardProps> = ({ user, onDelete,colorVariant }) => {
         title={user.name}
         description={[`メール:${user.email}\n`, `役割:${user.role}`]}
         actions={
-          <>
+          <Box sx={{ display: "flex", gap: 1 }}>
             <CustomButton component={Link} href={`/users/${user.id}/edit`}>
               編集
             </CustomButton>
@@ -56,7 +56,7 @@ const UserCard: React.FC<UserCardProps> = ({ user, onDelete,colorVariant }) => {
                 {submitError}
               </Alert>
             )}
-          </>
+          </Box>
         }
         colorVariant={colorVariant}
       />
@@ -68,6 +68,7 @@ const UserCard: React.FC<UserCardProps> = ({ user, onDelete,colorVariant }) => {
         onConfirm={() => {
           handleDelete();
         }}
+        modalVariant="danger"
       />
     </>
   );
