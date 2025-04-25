@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { TextField, Button, Box, Typography, Alert } from "@mui/material";
+import { TextField, Box, Typography, Alert } from "@mui/material";
 import { createUser } from "../utils/api";
+import CustomButton from "./parts/CustomButton";
 
 // 必要に応じて利用する
 interface RegisterFormInputs {
@@ -100,9 +101,9 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onSuccess, onError }) => {
           />
         </Box>
 
-        <Button type="submit" variant="contained" color="primary" fullWidth>
+        <CustomButton type="submit" variantType="radius" fullWidth>
           登録
-        </Button>
+        </CustomButton>
       </form>
 
       {submitError && (

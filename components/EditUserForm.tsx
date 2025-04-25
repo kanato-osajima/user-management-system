@@ -4,8 +4,9 @@
 
 import React, { useEffect, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { TextField, Button, Box, Typography, Alert } from "@mui/material";
+import { TextField,  Box, Typography, Alert } from "@mui/material";
 import { fetchUserById, updateUser } from "../utils/api";
+import CustomButton from "./parts/CustomButton";
 
 // 必要に応じて利用する
 interface EditUserFormInputs {
@@ -123,9 +124,9 @@ const EditUserForm: React.FC<EditUserFormProps> = ({
           />
         </Box>
 
-        <Button type="submit" variant="contained" color="primary" fullWidth>
+        <CustomButton type="submit" variantType="gradient" fullWidth>
           更新
-        </Button>
+        </CustomButton>
       </form>
 
       {submitError && (

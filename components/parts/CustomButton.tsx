@@ -4,6 +4,7 @@ import { Button, ButtonProps } from "@mui/material";
 
 interface CustomButtonProps extends ButtonProps {
   variantType?: "primary" | "secondary" | "danger" | "gradient" | "radius";
+  component?: React.ElementType;
 }
 
 const CustomButton: React.FC<CustomButtonProps> = ({

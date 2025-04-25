@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import CustomModal from "./CustomModal";
-import CustomButton from "../../components/parts/CustomButton";
+import CustomButton from "./CustomButton";
 import { Box } from "@mui/material";
 
 const meta: Meta<typeof CustomModal> = {

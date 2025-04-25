@@ -1,4 +1,4 @@
-"use client"; 
+"use client";
 
 import { User } from "../types/User";
 import UserCard from "../components/UserCard";
@@ -10,7 +10,7 @@ interface UserListProps {
 }
 
 const UserList: React.FC<UserListProps> = ({ users }) => {
-  const [userList,setUserList] = useState<User[]>(users);
+  const [userList, setUserList] = useState<User[]>(users);
 
   const handleDelete = (deletedUserId: number) => {
     setUserList((initialUsers) =>
@@ -24,9 +24,17 @@ const UserList: React.FC<UserListProps> = ({ users }) => {
         ユーザー一覧
       </Typography>
 
-      {userList.map((user) => (
-        <UserCard key={user.id} user={user} onDelete={handleDelete}/>
-      ))}
+      {userList.map((user, index) => {
+        const colorVariant = index % 2 === 0 ? "primary" : "secondary";
+        return (
+        <UserCard
+          key={user.id}
+          user={user}
+          onDelete={handleDelete}
+          colorVariant={colorVariant}
+        />
+        );
+      })}
     </Box>
   );
 };

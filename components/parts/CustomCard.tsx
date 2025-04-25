@@ -14,13 +14,11 @@ interface CustomCardProps {
 const getCardColorStyles = (variant: CustomCardProps["colorVariant"]) => {
   if (variant === "primary") {
     return {
-      backgroundColor: "#1976d2",//カラー指定をする
-      color: "white",
+      backgroundColor: "#efefff",
     };
   } else if (variant === "secondary") {
     return {
-      backgroundColor: "#dc004e",
-      color: "white",
+      backgroundColor: "#ffeaf4",
     };
   } else if (variant === "danger") {
     return {
