@@ -1,6 +1,6 @@
 // components/parts/CustomModal.tsx
 
-import React from "react";
+import React, { useEffect } from "react";
 import { Modal, Box, Typography, Button } from "@mui/material";
 
 interface CustomModalProps {
@@ -30,6 +30,20 @@ const CustomModal: React.FC<CustomModalProps> = ({
   onClose,
   onConfirm,
 }) => {
+  useEffect(() => {
+    if (open) {
+      const audio = new Audio("/sounds/sound.mp3"); // 音声ファイルのパス
+      const playAudio = async () => {
+        try {
+          await audio.play(); // 非同期で音を再生
+        } catch (error) {
+          console.error("音声再生エラー: ", error); // エラーハンドリング
+        }
+      };
+      playAudio();
+    }
+  }, [open]); 
+
   return (
     <Modal open={open} onClose={onClose}>
       <Box sx={style}>

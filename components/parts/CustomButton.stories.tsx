@@ -18,7 +18,6 @@ export const Primary: Story = {
     variantType: "primary",
     children: "Primary Button",
   },
-  
 };
 
 export const Secondary: Story = {
@@ -26,7 +25,6 @@ export const Secondary: Story = {
     variantType: "secondary",
     children: "Secondary Button",
   },
-  
 };
 
 export const Danger: Story = {
@@ -34,6 +32,18 @@ export const Danger: Story = {
     variantType: "danger",
     children: "Danger Button",
   },
-  
 };
 
+export const Gradient: Story = {
+  args: {
+    variantType: "gradient",
+    children: "Gradient Button",
+  },
+};
+
+export const Radius: Story = {
+  args: {
+    variantType: "radius",
+    children: "Radius Button",
+  },
+};
