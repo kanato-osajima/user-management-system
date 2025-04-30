@@ -15,7 +15,7 @@ const RegisterPage: React.FC = () => {
     router.push("/users");
   };
 
-//テストGit
+//テストGit 追記
   return (
     <Box>
       <Typography variant="h5" gutterBottom>
